@@ -17,7 +17,7 @@ const form = useForm({
     title: '',
     slug: '',
     content: '',
-
+    
 });
 
 const submit = () => {

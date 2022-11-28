@@ -17,9 +17,12 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
-        return Inertia::render('Blogs/Index', [
-            'blogs' => $blogs,
-        ]);
+        return Inertia::render(
+            'Blogs/Index',
+            [
+                'blogs' => $blogs
+            ]
+        );
     }
 
     /**
@@ -29,7 +32,9 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Blogs/Create');
+        return Inertia::render(
+            'Blogs/Create'
+        );
     }
 
     /**
@@ -48,13 +53,11 @@ class BlogController extends Controller
         Blog::create([
             'title' => $request->title,
             'slug' => \Str::slug($request->slug),
-            'content' => $request->content,
+            'content' => $request->content
         ]);
         sleep(1);
 
-        return redirect()
-            ->route('blogs.index')
-            ->with('message', 'Blog Created Successfully');
+        return redirect()->route('blogs.index')->with('message', 'Blog Created Successfully');
     }
 
     /**
@@ -76,9 +79,12 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return Inertia::render('Blogs/Edit', [
-            'blog' => $blog,
-        ]);
+        return Inertia::render(
+            'Blogs/Edit',
+            [
+                'blog' => $blog
+            ]
+        );
     }
 
     /**
@@ -102,9 +108,8 @@ class BlogController extends Controller
         $blog->save();
         sleep(1);
 
-        return redirect()
-            ->route('blogs.index')
-            ->with('message', 'Blog Updated Successfully');
+        return redirect()->route('blogs.index')->with('message', 'Blog Updated Successfully');
+
     }
 
     /**
@@ -118,8 +123,6 @@ class BlogController extends Controller
         $blog->delete();
         sleep(1);
 
-        return redirect()
-            ->route('blogs.index')
-            ->with('message', 'Blog Delete Successfully');
+        return redirect()->route('blogs.index')->with('message', 'Blog Delete Successfully');
     }
 }

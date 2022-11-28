@@ -126,6 +126,6 @@ function destroy(id) {
             </div>
         </div>
 
-
+        
     </BreezeAuthenticatedLayout>
 </template>

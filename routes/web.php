@@ -27,9 +27,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-Route::resource('blogs', BlogController::class);
+})->middleware(['auth', 'verified'])->name('dashboard');
+Route::resource('blogs',BlogController::class);
 
-require __DIR__ . '/auth.php';
+
+require __DIR__.'/auth.php';
